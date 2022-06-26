@@ -1,1 +1,19 @@
+# 2. Отсортируйте по возрастанию методом слияния одномерный вещественный массив, заданный случайными числами на промежутке [0; 50).
+# Выведите на экран исходный и отсортированный массивы.
+import random
 
+
+array = [0] * 20
+def merge_sort(x):
+    if len(x) < 2:
+        return x
+    result,mid = [],int(len(x)/2)
+    y = merge_sort(x[:mid])
+    z = merge_sort(x[mid:])
+    while (len(y) > 0) and (len(z) > 0):
+            if y[0] > z[0]:result.append(z.pop(0))
+            else:result.append(y.pop(0))
+    result.extend(y+z)
+    return result
+array = [random.randint(-100, 101) for i in array]
+print(array, '\n', merge_sort(array))
