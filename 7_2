@@ -15,5 +15,5 @@ def merge_sort(x):
             else:result.append(y.pop(0))
     result.extend(y+z)
     return result
-array = [random.randint(-100, 101) for i in array]
+array = [random.randint(0, 50) for i in array]
 print(array, '\n', merge_sort(array))
